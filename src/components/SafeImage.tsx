@@ -8,11 +8,7 @@ export function SafeImage({ alt, className, fallbackClassName, onError, src, ...
   const [failed, setFailed] = useState(false);
 
   if (failed || !src) {
-    return (
-      <div className={fallbackClassName ?? className} role="img" aria-label={alt || "Photo soon"}>
-        Photo soon
-      </div>
-    );
+    return <div className={fallbackClassName ?? className} role="img" aria-label={alt || "Photo soon"}>Photo soon</div>;
   }
 
   return (

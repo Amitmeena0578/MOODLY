@@ -8,12 +8,11 @@ import { SafeImage } from "./SafeImage";
 export function ProductCard({ product }: { product: Product }) {
   const { navigate } = useRouter();
   const [hover, setHover] = useState(false);
-  const [imageFailed, setImageFailed] = useState(false);
 
   const images = getProductImages(product);
   const front = images.find((i) => i.role === "front") ?? images[0];
   const back = images.find((i) => i.role === "back");
-  const shown = hover && back ? back : front;
+  const shown = hover && front?.src ? front : back ?? front;
 
   return (
     <div className="group flex flex-col overflow-hidden rounded-xl border border-[#E5DED3] bg-[#FFFCF7]">
@@ -33,22 +32,16 @@ export function ProductCard({ product }: { product: Product }) {
             Sold out
           </span>
         )}
-        {imageFailed || !shown?.src ? (
-          <div className="flex h-full w-full items-center justify-center bg-[#EFE8DB] text-sm text-[#6B6460]">
-            Photo soon
-          </div>
-        ) : (
-          <SafeImage
-            src={shown.src}
-            alt={shown.alt}
-            loading="lazy"
-            onError={() => setImageFailed(true)}
-            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-          />
-        )}
+        <SafeImage
+          src={shown?.src ?? undefined}
+          alt={shown?.alt ?? "Photo soon"}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          fallbackClassName="flex h-full min-h-40 w-full items-center justify-center border border-dashed border-[#D7C6B4] bg-[#F3E9DC] text-sm text-[#7A1F1F]"
+        />
       </a>
 
-      <div className="flex flex-1 flex-col gap-3 p-4">
+      <div className="flex min-h-[12.5rem] flex-1 flex-col gap-3 p-4">
         <div>
           <h3 className="text-[15px] font-medium text-[#141414]">{product.name}</h3>
           <p className="mt-0.5 text-sm text-[#6B6460]">

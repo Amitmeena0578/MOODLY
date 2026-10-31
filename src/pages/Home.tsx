@@ -17,15 +17,15 @@ export function Home() {
   return (
     <div>
       {/* A. Hero */}
-      <section className="relative flex min-h-[90vh] items-end overflow-hidden bg-[#141414] sm:min-h-[100vh]">
+      <section className="relative flex min-h-[90svh] items-end overflow-hidden bg-[#141414] pt-[calc(9rem+env(safe-area-inset-top))] sm:min-h-[100svh] sm:pt-40">
         <SafeImage
           src={SAMPLE_IMAGES.kalamkariCreamBack}
           alt="Kalamkari Heritage cream, back print, natural light"
           className="absolute inset-0 h-full w-full object-cover opacity-90"
           fallbackClassName="absolute inset-0 flex h-full w-full items-center justify-center bg-[#141414] text-sm text-[#F5F0E8]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/10" />
-        <div className="relative z-10 mx-auto w-full max-w-[1200px] px-4 pb-12 pt-32 sm:px-6 sm:pb-16">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/10" />
+        <div className="relative z-10 mx-auto w-full max-w-[1200px] px-4 pb-12 sm:px-6 sm:pb-16">
           <p className="text-xs font-medium tracking-[0.3em] text-[#F5F0E8]/80">DROP 01</p>
           <h1 className="mt-4 font-serif text-5xl italic tracking-tight text-white sm:text-7xl">
             Wear your mood.
@@ -76,7 +76,7 @@ export function Home() {
       </section>
 
       {/* C. Shop the drop */}
-      <section id="drop" className="mx-auto max-w-[1200px] px-4 py-16 sm:px-6 sm:py-20 scroll-mt-16">
+      <section id="drop" className="mx-auto max-w-[1200px] scroll-mt-16 px-4 py-14 sm:px-6 sm:py-16">
         <div className="mb-10 max-w-xl">
           <h2 className="text-3xl font-semibold tracking-tight text-[#141414] sm:text-4xl">The drop</h2>
           <p className="mt-3 text-[#6B6460]">
@@ -84,7 +84,7 @@ export function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
           {activeProducts.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
@@ -92,8 +92,8 @@ export function Home() {
       </section>
 
       {/* D. Kalamkari band */}
-      <section className="bg-[#FFFCF7] py-16 sm:py-20">
-        <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12">
+      <section className="bg-[#FFFCF7] py-14 sm:py-16">
+        <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,0.92fr)] lg:gap-10">
           <div className="grid grid-cols-2 gap-4">
             <SafeImage
               src={SAMPLE_IMAGES.kalamkariCreamBack}
@@ -115,7 +115,7 @@ export function Home() {
             />
           </div>
 
-          <div className="flex flex-col justify-center">
+          <div className="flex max-w-xl flex-col justify-center">
             <h2 className="text-3xl font-semibold tracking-tight text-[#141414] sm:text-4xl">
               Kalamkari Heritage
             </h2>
@@ -144,7 +144,7 @@ export function Home() {
       </section>
 
       {/* E. Fabric truth */}
-      <section className="mx-auto max-w-[1200px] px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 sm:py-16">
         <h2 className="text-3xl font-semibold tracking-tight text-[#141414] sm:text-4xl">
           Heavy on purpose.
         </h2>
@@ -170,7 +170,7 @@ export function Home() {
       </section>
 
       {/* F. Print Your Mood */}
-      <section className="bg-[#141414] py-16 text-[#F5F0E8] sm:py-20">
+      <section className="bg-[#141414] py-14 text-[#F5F0E8] sm:py-16">
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
           <div>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Print your mood.</h2>
@@ -222,7 +222,7 @@ export function Home() {
       </section>
 
       {/* G. How ordering works */}
-      <section className="mx-auto max-w-[1200px] px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 sm:py-16">
         <h2 className="text-3xl font-semibold tracking-tight text-[#141414] sm:text-4xl">
           No cart. Just WhatsApp.
         </h2>
@@ -247,7 +247,7 @@ export function Home() {
       </section>
 
       {/* H. Pickup & shipping */}
-      <section className="bg-[#FFFCF7] py-16 sm:py-20">
+      <section className="bg-[#FFFCF7] py-14 sm:py-16">
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 px-4 sm:px-6 sm:grid-cols-2">
           <div className="rounded-xl border border-[#E5DED3] bg-[#F5F0E8] p-6">
             <h3 className="text-lg font-semibold text-[#141414]">Jaipur pickup</h3>
@@ -265,7 +265,7 @@ export function Home() {
       </section>
 
       {/* I. Policy */}
-      <section className="mx-auto max-w-[1200px] px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 sm:py-16">
         <h2 className="text-2xl font-semibold tracking-tight text-[#141414]">Policy</h2>
         <div className="mt-6 space-y-3 text-sm text-[#6B6460]">
           <p>No returns on print, size choice, or custom orders.</p>

@@ -28,7 +28,7 @@ export function resolveImage(product: Product, role: ImageRole): string | null {
 }
 
 export function getProductImages(product: Product): ProductImage[] {
-  const roles: ImageRole[] = ["front", "back", "detail", "fabric", "fit"];
+  const roles: ImageRole[] = ["back", "front", "detail", "fabric", "fit"];
   return roles.map((role) => ({
     role,
     src: resolveImage(product, role),
