@@ -25,6 +25,12 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-2 text-sm text-[#141414] sm:items-end">
+            <a href="#drop" onClick={(e) => { e.preventDefault(); navigate("/"); requestAnimationFrame(() => document.getElementById("drop")?.scrollIntoView({ behavior: "smooth" })); }} className="hover:text-[#7A1F1F]">
+              Shop the drop
+            </a>
+            <a href="#/print" onClick={(e) => { e.preventDefault(); navigate("/print"); }} className="hover:text-[#7A1F1F]">
+              Print your mood
+            </a>
             <a
               href="https://instagram.com/get.moodly"
               target="_blank"

@@ -17,46 +17,54 @@ export function Home() {
   return (
     <div>
       {/* A. Hero */}
-      <section className="relative flex min-h-[90svh] items-end overflow-hidden bg-[#141414] pt-[calc(9rem+env(safe-area-inset-top))] sm:min-h-[100svh] sm:pt-40">
-        <SafeImage
-          src={SAMPLE_IMAGES.kalamkariCreamBack}
-          alt="Kalamkari Heritage cream, back print, natural light"
-          className="absolute inset-0 h-full w-full object-cover opacity-90"
-          fallbackClassName="absolute inset-0 flex h-full w-full items-center justify-center bg-[#141414] text-sm text-[#F5F0E8]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/10" />
-        <div className="relative z-10 mx-auto w-full max-w-[1200px] px-4 pb-12 sm:px-6 sm:pb-16">
-          <p className="text-xs font-medium tracking-[0.3em] text-[#F5F0E8]/80">DROP 01</p>
-          <h1 className="mt-4 font-serif text-5xl italic tracking-tight text-white sm:text-7xl">
-            Wear your mood.
-          </h1>
-          <p className="mt-4 text-sm tracking-wide text-[#F5F0E8]/90 sm:text-base">
-            240 GSM · Drop-shoulder · Jaipur
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <PrimaryButton
-              href="#drop"
-              onClick={(e: React.MouseEvent) => {
-                e.preventDefault();
-                scrollToId("drop");
-              }}
-            >
-              Shop the drop
-            </PrimaryButton>
-            <GhostButton
-              href="#/print"
-              onClick={(e: React.MouseEvent) => {
-                e.preventDefault();
-                navigate("/print");
-              }}
-              className="border-white text-white hover:bg-white hover:text-[#141414]"
-            >
-              Print your mood
-            </GhostButton>
+      <section className="relative grid min-h-[100svh] min-h-[100dvh] grid-rows-[calc(4rem+env(safe-area-inset-top))_minmax(0,1fr)_auto] overflow-hidden bg-[#F5F0E8]">
+        <div className="relative row-start-2 min-h-0 w-full">
+          <SafeImage
+            src={SAMPLE_IMAGES.kalamkariCreamBack}
+            alt="Kalamkari Heritage cream, back print, natural light"
+            className="absolute inset-0 h-full w-full object-cover object-[center_25%] opacity-100"
+            fallbackClassName="absolute inset-0 flex h-full w-full items-center justify-center bg-[#EFE8DB] text-sm text-[#6B6460]"
+          />
+        </div>
+        <div className="relative z-10 row-start-3 bg-[#F5F0E8] px-4 py-3 md:px-8 md:py-6 lg:px-12">
+          <div className="mx-auto grid max-w-[1200px] items-center gap-3 md:grid-cols-[minmax(24rem,1fr)_minmax(17rem,0.8fr)_auto] md:gap-8">
+            <div>
+              <p className="text-[11px] font-medium tracking-[0.3em] text-[#7A1F1F] md:text-xs">DROP 01</p>
+              <h1 className="mt-1 font-serif text-[2.2rem] leading-none italic tracking-tight text-[#141414] md:text-5xl lg:text-6xl">
+                Wear your mood.
+              </h1>
+            </div>
+            <div>
+              <p className="text-xs tracking-wide text-[#6B6460] md:text-sm">
+                240 GSM · Drop-shoulder · Jaipur
+              </p>
+              <p className="mt-2 text-[11px] tracking-wide text-[#6B6460] md:text-xs">
+                Free Jaipur pickup · Ships pan-India
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 md:flex-row">
+              <PrimaryButton
+                href="#drop"
+                onClick={(e: React.MouseEvent) => {
+                  e.preventDefault();
+                  scrollToId("drop");
+                }}
+                className="w-full px-3 text-xs md:min-w-[9.5rem] md:text-sm"
+              >
+                Shop the drop
+              </PrimaryButton>
+              <GhostButton
+                href="#/print"
+                onClick={(e: React.MouseEvent) => {
+                  e.preventDefault();
+                  navigate("/print");
+                }}
+                className="w-full border-[#7A1F1F] px-3 text-xs text-[#7A1F1F] hover:bg-[#7A1F1F] hover:text-white md:min-w-[9.5rem] md:text-sm"
+              >
+                Print your mood
+              </GhostButton>
+            </div>
           </div>
-          <p className="mt-6 text-xs tracking-wide text-[#F5F0E8]/70">
-            Free Jaipur pickup · Ships pan-India
-          </p>
         </div>
       </section>
 
@@ -84,7 +92,7 @@ export function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3 lg:gap-7">
           {activeProducts.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
@@ -144,12 +152,12 @@ export function Home() {
       </section>
 
       {/* E. Fabric truth */}
-      <section className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 sm:py-16">
+      <section className="mx-auto max-w-[1200px] px-4 py-12 sm:px-6 sm:py-14">
         <h2 className="text-3xl font-semibold tracking-tight text-[#141414] sm:text-4xl">
           Heavy on purpose.
         </h2>
 
-        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
           <div>
             <p className="text-sm font-semibold tracking-wide text-[#7A1F1F]">240 GSM</p>
             <p className="mt-2 text-[#141414]">Substantial cotton. Holds shape.</p>
@@ -164,13 +172,13 @@ export function Home() {
           </div>
         </div>
 
-        <p className="mt-8 text-sm text-[#6B6460]">
+        <p className="mt-6 text-sm text-[#6B6460]">
           Care: wash inside-out, cold, no iron on print.
         </p>
       </section>
 
       {/* F. Print Your Mood */}
-      <section className="bg-[#141414] py-14 text-[#F5F0E8] sm:py-16">
+      <section className="bg-[#141414] py-12 text-[#F5F0E8] sm:py-14">
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
           <div>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Print your mood.</h2>
@@ -221,13 +229,13 @@ export function Home() {
         </div>
       </section>
 
-      {/* G. How ordering works */}
-      <section className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 sm:py-16">
+      {/* G. Order + trust */}
+      <section className="mx-auto max-w-[1200px] px-4 py-12 sm:px-6 sm:py-14">
         <h2 className="text-3xl font-semibold tracking-tight text-[#141414] sm:text-4xl">
           No cart. Just WhatsApp.
         </h2>
 
-        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-x-5 gap-y-6 sm:grid-cols-4 sm:gap-8">
           {[
             { n: "1", t: "Pick tee + size" },
             { n: "2", t: "Order on WhatsApp" },
@@ -241,42 +249,33 @@ export function Home() {
           ))}
         </div>
 
-        <p className="mt-8 text-sm text-[#6B6460]">
+        <p className="mt-6 text-sm text-[#6B6460]">
           {BRAND.productionText}
         </p>
-      </section>
 
-      {/* H. Pickup & shipping */}
-      <section className="bg-[#FFFCF7] py-14 sm:py-16">
-        <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 px-4 sm:px-6 sm:grid-cols-2">
-          <div className="rounded-xl border border-[#E5DED3] bg-[#F5F0E8] p-6">
-            <h3 className="text-lg font-semibold text-[#141414]">Jaipur pickup</h3>
+        <div className="mt-10 grid grid-cols-1 gap-5 border-t border-[#E5DED3] pt-8 sm:grid-cols-3 sm:gap-8">
+          <div>
+            <h3 className="text-sm font-semibold text-[#141414]">Jaipur pickup</h3>
             <p className="mt-2 text-sm text-[#6B6460]">
-              Confirm on WhatsApp · free · pay by UPI or cash on pickup.
+              Free pickup after WhatsApp confirmation. Pay by UPI or cash.
             </p>
           </div>
-          <div className="rounded-xl border border-[#E5DED3] bg-[#F5F0E8] p-6">
-            <h3 className="text-lg font-semibold text-[#141414]">All India</h3>
+          <div>
+            <h3 className="text-sm font-semibold text-[#141414]">All India shipping</h3>
             <p className="mt-2 text-sm text-[#6B6460]">
-              Dispatched after printing ·               courier typically 3–6 days · tracking shared on WhatsApp. {BRAND.shippingText}
+              Courier usually takes 3–6 days after printing. Tracking shared on WhatsApp.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* I. Policy */}
-      <section className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 sm:py-16">
-        <h2 className="text-2xl font-semibold tracking-tight text-[#141414]">Policy</h2>
-        <div className="mt-6 space-y-3 text-sm text-[#6B6460]">
-          <p>No returns on print, size choice, or custom orders.</p>
-          <p>Defect or wrong item: tell us within 48 hours with a photo and we'll replace it.</p>
-          <p>
-            Questions, anytime:{" "}
-            <a href={waLink(headerChat)} target="_blank" rel="noopener" className="text-[#7A1F1F] underline underline-offset-4">
-              WhatsApp us
-            </a>
-            .
-          </p>
+          <div>
+            <h3 className="text-sm font-semibold text-[#141414]">Simple policy</h3>
+            <p className="mt-2 text-sm text-[#6B6460]">
+              No returns on size, print, or custom orders. Defects are replaced within 48 hours.
+              {" "}
+              <a href={waLink(headerChat)} target="_blank" rel="noopener" className="text-[#7A1F1F] underline underline-offset-4">
+                Questions? WhatsApp us.
+              </a>
+            </p>
+          </div>
         </div>
       </section>
     </div>

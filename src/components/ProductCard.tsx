@@ -25,7 +25,7 @@ export function ProductCard({ product }: { product: Product }) {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         onTouchStart={() => setHover((h) => !h)}
-        className="block aspect-[4/5] overflow-hidden bg-[#EFE8DB]"
+        className="relative block aspect-[4/5] overflow-hidden bg-[#EFE8DB]"
       >
         {product.soldOut && (
           <span className="absolute z-10 m-3 rounded-md bg-[#141414] px-2 py-1 text-xs font-medium text-white">
@@ -41,10 +41,10 @@ export function ProductCard({ product }: { product: Product }) {
         />
       </a>
 
-      <div className="flex min-h-[12.5rem] flex-1 flex-col gap-3 p-4">
+      <div className="flex min-h-[11rem] flex-1 flex-col gap-2 p-3 sm:min-h-[12.5rem] sm:gap-3 sm:p-4">
         <div>
-          <h3 className="text-[15px] font-medium text-[#141414]">{product.name}</h3>
-          <p className="mt-0.5 text-sm text-[#6B6460]">
+          <h3 className="text-sm font-medium leading-tight text-[#141414] sm:text-[15px]">{product.name}</h3>
+          <p className="mt-0.5 text-xs text-[#6B6460] sm:text-sm">
             {product.color} · {product.gsm} GSM
           </p>
         </div>
@@ -52,7 +52,7 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="text-sm font-medium text-[#141414]">₹{product.price}</p>
 
         <div className="mt-auto flex flex-col gap-2">
-          <PrimaryButton href={`#/p/${product.slug}`} className="w-full">
+          <PrimaryButton href={`#/p/${product.slug}`} className="min-h-[42px] w-full px-2 text-xs sm:px-6 sm:text-sm">
             {product.soldOut ? "View details" : "Choose size"}
           </PrimaryButton>
           <a
@@ -61,7 +61,7 @@ export function ProductCard({ product }: { product: Product }) {
               e.preventDefault();
               navigate(`/p/${product.slug}`);
             }}
-            className="text-center text-sm text-[#141414] underline underline-offset-4 hover:text-[#7A1F1F]"
+            className="text-center text-xs text-[#141414] underline underline-offset-4 hover:text-[#7A1F1F] sm:text-sm"
           >
             Details →
           </a>

@@ -19,16 +19,19 @@ export function PrintPage() {
   return (
     <div className="pb-28 sm:pb-0">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#141414] text-[#F5F0E8]">
+      <section className="grid overflow-hidden bg-[#F5F0E8] md:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)]">
         <SafeImage
           src={SAMPLE_IMAGES.printBlanks}
           alt="Plain cream and black blank tees, ready for custom print"
-          className="absolute inset-0 h-full w-full object-cover opacity-50"
-          fallbackClassName="absolute inset-0 flex h-full w-full items-center justify-center bg-[#141414] text-sm text-[#F5F0E8]"
+          className="h-full min-h-[18rem] w-full object-cover md:min-h-[25rem]"
+          fallbackClassName="flex min-h-[18rem] w-full items-center justify-center bg-[#EFE8DB] text-sm text-[#6B6460] md:min-h-[25rem]"
         />
-        <div className="relative z-10 mx-auto max-w-[1200px] px-4 py-24 sm:px-6 sm:py-32">
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">Print your mood.</h1>
-          <p className="mt-4 max-w-md text-[#F5F0E8]/85">Same tee. Your file. WhatsApp only.</p>
+        <div className="flex flex-col justify-center px-4 py-8 md:px-10 md:py-12 lg:px-16">
+          <p className="text-xs font-medium tracking-[0.3em] text-[#7A1F1F]">CUSTOM DROP</p>
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-[#141414] sm:text-6xl">
+            Print your mood.
+          </h1>
+          <p className="mt-4 max-w-md text-[#6B6460]">Same tee. Your file. WhatsApp only.</p>
         </div>
       </section>
 
